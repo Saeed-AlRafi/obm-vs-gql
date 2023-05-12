@@ -1,9 +1,8 @@
 const Koa = require('koa');
 const app = new Koa();
-var objectMapper = require('object-mapper');
 
 app.use(async ctx => {
-  const fatiha = await fetch("https://api.alquran.cloud/v1/surah/1");
+  const fatiha = await fetch("");
   const fatihaJson = await fatiha.json()
   var map = {
     "data.name":"name",
@@ -11,8 +10,7 @@ app.use(async ctx => {
     "data.ayahs[2]":"3rd ayah "
   }
   var x = objectMapper(fatihaJson,map);
-  ctx.body = fatihaJson;
-  //ctx.body = x;
+  ctx.body = x;
 });
 
 app.listen(3000);

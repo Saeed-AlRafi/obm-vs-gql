@@ -8,11 +8,11 @@ app.use(async ctx => {
   var map = {
     "data.name":"name",
     "data.numberOfAyahs":"numberOfAyahs",
-    "data.ayahs[2]":"3rd ayah "
+    "data.ayahs[2]":"3rd ayah ",
+    "data.ayahs[].text":"texts"
   }
   var x = objectMapper(fatihaJson,map);
-  ctx.body = fatihaJson;
-  //ctx.body = x;
+  ctx.body = x;
 });
 
 app.listen(3000);

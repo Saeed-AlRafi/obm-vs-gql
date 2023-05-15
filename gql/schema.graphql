@@ -4,7 +4,6 @@ type Object {
     data: Data
 }
 
-
 type Data {
     number: Int
     name: String
@@ -12,8 +11,8 @@ type Data {
     englishNameTranslation: String
     revelationType: String
     numberOfAyahs: Int
-    ayahs: [Ayah] #@proxy(get: "https://api.alquran.cloud/v1/surah/1") #does this mean each sub object needs its own get? (true rest?)
-    edition: Edition #@proxy(get: "https://api.alquran.cloud/v1/surah/1")#if so then I cant run this POC with this API.
+    ayahs: [Ayah]
+    edition: Edition 
 }
 
 type Ayah {

@@ -12,7 +12,7 @@ type Data {
     revelationType: String
     numberOfAyahs: Int
     ayahs: [Ayah]
-    edition: Edition 
+    edition: Edition     
 }
 
 type Ayah {
@@ -39,4 +39,8 @@ type Edition {
 
 type Query {
     getSurah: Object @proxy(get: "https://api.alquran.cloud/v1/surah/1")
+}
+
+type Query {
+    ayah(numberInSurah: numberInSurah!) : Ayah
 }

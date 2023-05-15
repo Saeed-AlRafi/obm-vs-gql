@@ -1,0 +1,21 @@
+type Data{
+    number: int
+    name: string
+    englishName: string
+    englishNameTranslation: string
+    revelationType: string
+    numberOfAyahs: int
+    ayahs: [Ayah] @proxy(get: "https//localhost:3000/data/ayah)
+}
+
+type Ayah{
+    number: int
+    text: string
+    numberInSurah: int
+    juz: int
+    manzil: int
+    page: int
+    ruku: int
+    hizbQuarter: int
+    sajda: boolean
+}

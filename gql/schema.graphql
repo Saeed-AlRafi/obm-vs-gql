@@ -1,36 +1,43 @@
-type Data{
-    number: int
-    name: string
-    englishName: string
-    englishNameTranslation: string
-    revelationType: string
-    numberOfAyahs: int
-    ayahs: [Ayah] @proxy(get: "https//localhost:3000/data/ayah)
-    edition: Edition @proxy(get: "https//localhost:3000/data/edition")
+type Object {
+    code: Int
+    status: String
+    data: Data
 }
 
-type Ayah{
-    number: int
-    text: string
-    numberInSurah: int
-    juz: int
-    manzil: int
-    page: int
-    ruku: int
-    hizbQuarter: int
-    sajda: boolean
+
+type Data {
+    number: Int
+    name: String
+    englishName: String
+    englishNameTranslation: String
+    revelationType: String
+    numberOfAyahs: Int
+    ayahs: [Ayah] #@proxy(get: "https://api.alquran.cloud/v1/surah/1") #does this mean each sub object needs its own get? (true rest?)
+    edition: Edition #@proxy(get: "https://api.alquran.cloud/v1/surah/1")#if so then I cant run this POC with this API.
 }
 
-type Edition{
-    identifier: string
-    language: string
-    name: string
-    englishName: string
-    format: string
-    type: string
-    direction: string
+type Ayah {
+    number: Int
+    text: String
+    numberInSurah: Int
+    juz: Int
+    manzil: Int
+    page: Int
+    ruku: Int
+    hizbQuarter: Int
+    sajda: Boolean
 }
 
-type Query{
-    getSurah: Data @proxy(get: "https//localhost:3000/")
+type Edition {
+    identifier: String
+    language: String
+    name: String
+    englishName: String
+    format: String
+    type: String
+    direction: String
+}
+
+type Query {
+    getSurah: Object @proxy(get: "https://api.alquran.cloud/v1/surah/1")
 }

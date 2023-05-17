@@ -8,7 +8,15 @@ app.use(async ctx => {
   var map = {
     "data.name":"name",
     "data.numberOfAyahs":"numberOfAyahs",
-    "data.ayahs[2]":"3rd ayah ",
+    "data.ayahs[]":{
+      key: "3rd ayah",
+      transform:function(value){
+        for (let i = 0; i < value.length; i++){
+          if (value[i].number == 3)
+            return value[i]
+        }
+      }
+    },
     "data.ayahs[].text":"texts"
   }
   var x = objectMapper(fatihaJson,map);

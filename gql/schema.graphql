@@ -1,3 +1,5 @@
+
+
 type Object {
     code: Int
     status: String
@@ -42,5 +44,5 @@ type Query {
 }
 
 type Query {
-    ayah(numberInSurah: numberInSurah!) : Ayah
+    getAyah(numberInSurah: Int) : Ayah
 }
